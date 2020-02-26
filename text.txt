@@ -1,0 +1,1 @@
+TVM is an end-to-end deep learning compiler stack for CPUs, GPUs, and specialized accelerators \cite{moreau:vta_2018,chen:tvm_osdi_2018}.
