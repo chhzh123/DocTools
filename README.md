@@ -2,7 +2,7 @@
 
 Some tools for formatting docs (tex/txt + bib)
 
-=============
+-----------------------
 
 As a LaTeX-fancier, I cannot bear myself processing text and fine-tuning the formats in Microsoft Office Word endlessly, but at some times I have to use Word or textbook to write something. To free myself from tedious formatting, I build the wheels.
 
@@ -32,4 +32,19 @@ Reference:
 
 The input example can be found in the folder.
 
-Disclaimer: I do not use complex parsing techniques so it might easily get into trouble.
+
+## Markdown to LaTeX (md2tex)
+A tool that transforms Markdown grammar to LaTeX grammar.
+
+Most of the markdown grammar are be supported, including nested environments. To change the style of generated tables, figures, and codes, you can directly modify the output string.
+
+Just type
+
+```
+python md2tex.py text.md # python 3 is needed
+```
+
+The corresponding LaTeX file (`output.tex`) will be generated.
+
+
+Disclaimer: I do not use complex parsing techniques so these tools might easily get into trouble.
