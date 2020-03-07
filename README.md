@@ -1,8 +1,4 @@
-# DocTools
-
-Some tools for formatting docs (tex/txt + bib)
-
------------------------
+# DocTools: Tools for formatting docs (tex/txt + bib)
 
 As a LaTeX-fancier, I cannot bear myself processing text and fine-tuning the formats in Microsoft Office Word endlessly, but at some times I have to use Word or textbook to write something. To free myself from tedious formatting, I build the wheels.
 
@@ -16,7 +12,7 @@ You can use `\cite` in the text as what you do in LaTeX. With the assistance of 
 You need not count the number or order the references yourself. Just evoke the tool to link your text with the bibliography (in BibTeX format).
 
 ```
-python bibtool.py text.txt ref.bib  # python 3 is needed
+python bibtool.py example/text.txt example/ref.bib  # python 3 is needed
 ```
 
 And you will get the output file like this
@@ -41,7 +37,7 @@ Most of the markdown grammar are be supported, including nested environments. To
 Just type
 
 ```
-python md2tex.py text.md # python 3 is needed
+python md2tex.py example/text.md # python 3 is needed
 ```
 
 The corresponding LaTeX file (`output.tex`) will be generated.
