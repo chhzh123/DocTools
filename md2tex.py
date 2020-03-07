@@ -4,9 +4,10 @@ import sys
 UNORD_LST = False
 ORD_LST = False
 TABLE = False
+MATH = False
 
 def env_end(line):
-    global UNORD_LST, ORD_LST, TABLE
+    global UNORD_LST, ORD_LST, TABLE, MATH
     if line == "" or line[0] == "\n":
         if UNORD_LST:
             line = "\\end{itemize}\n\n"
@@ -17,6 +18,9 @@ def env_end(line):
         elif TABLE:
             line = "\\end{tabular}\n\\end{center}\n\n"
             TABLE = False
+        elif MATH:
+            line = "\\]\n\n"
+            MATH = False
     return line
 
 outfile_name = "output.tex"
@@ -45,14 +49,14 @@ with open(sys.argv[1],"r",encoding="utf-8") as infile:
         # math
         line = re.sub(r'\$\$(.*?)\$\$',r'\\[\1\\]',line)
         # figures
-        line = re.sub(r'!\[.*\]\((.*)\)',
+        line = re.sub(r'!\[.*?\]\((.*?)\)',
                       r'\\begin{figure}[H]\n'
                       r'\centering\n'
                       r'\includegraphics[width=0.8\linewidth]{\1}\n'
                       r'\end{figure}',line)
         # links
-        line = re.sub(r'\[(.*)\]\((.*)\)',r'\href{\2}{\1}',line)
-        line = re.sub(r'<(http.*)>',r'\url{\1}',line)
+        line = re.sub(r'\[(.*?)\]\((.*?)\)',r'\href{\2}{\1}',line)
+        line = re.sub(r'<(http.*?)>',r'\url{\1}',line)
         # big environments
         if line[:2] == "* ": # unordered lists
             if UNORD_LST:
@@ -67,6 +71,13 @@ with open(sys.argv[1],"r",encoding="utf-8") as infile:
             else:
                 line = "\\begin{enumerate}\n\\item" + line[idx:]
                 ORD_LST = True
+        elif "$$" in line: # display math
+            if MATH:
+                line = line.replace("$$","\n\\]\n")
+                MATH = False
+            else:
+                line = line.replace("$$","\n\\[\n")
+                MATH = True
         elif "|" in line: # tables
             line = line.strip()
             if ":-" in line or "-:" in line:
