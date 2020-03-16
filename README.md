@@ -43,4 +43,13 @@ python md2tex.py example/text.md # python 3 is needed
 The corresponding LaTeX file (`output.tex`) will be generated.
 
 
+## TiddlyWiki to Markdown (tiddly2md)
+A tool that transforms [TiddlyWiki](https://tiddlywiki.com/) grammar to Markdown grammar.
+
+Just type
+
+```
+python tiddly2md.py tiddly.txt output.md # python 3 is needed
+```
+
 Disclaimer: I do not use complex parsing techniques so these tools might easily get into trouble.
