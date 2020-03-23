@@ -29,6 +29,16 @@ Reference:
 The input example can be found in the folder.
 
 
+## Pretty BibTeX
+A tool that formats the BibTeX file. The remaining items include authors, title, conference / journal name, and publication year.
+
+Just type
+
+```
+python prettybib.py example/ref.bib # python 3 is needed
+```
+
+
 ## Markdown to LaTeX (md2tex)
 A tool that transforms Markdown grammar to LaTeX grammar.
 
