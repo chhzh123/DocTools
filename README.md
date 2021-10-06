@@ -39,7 +39,7 @@ python prettybib.py example/ref.bib # python 3 is needed
 ```
 
 
-## Markdown to LaTeX (md2tex)
+## Markdown to LaTeX (md2tex) / DokuWiki (md2wiki)
 A tool that transforms Markdown grammar to LaTeX grammar.
 
 Most of the markdown grammar are be supported, including nested environments. To change the style of generated tables, figures, and codes, you can directly modify the output string.
@@ -52,6 +52,13 @@ python md2tex.py example/text.md # python 3 is needed
 
 The corresponding LaTeX file (`output.tex`) will be generated.
 
+For transforming Markdown to [DokuWiki](https://www.dokuwiki.org/wiki:syntax), type
+
+```
+python md2wiki.py example/text.md # python 3 is needed
+```
+
+It will generate `output.wk` file.
 
 ## TiddlyWiki to Markdown (tiddly2md)
 A tool that transforms [TiddlyWiki](https://tiddlywiki.com/) grammar to Markdown grammar.
